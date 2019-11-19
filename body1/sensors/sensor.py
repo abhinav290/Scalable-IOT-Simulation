@@ -5,10 +5,26 @@ import time
 
 config_file = 'config.json'
 
-
 def read_config():
     return json.loads(open(config_file, 'r').read())
 
+def compute_fowarding_score():
+    config = read_config()
+    for sensorId in config.keys():
+        config[sensorId]['forwarding_score'] = config[sensorId]['distance_to_sink'] / config[sensorId]['battery']
+    return config
+
+def decide_forwarder(config):
+    THRESHOLD_BATTERY = 10
+    selected_forwarder = sorted(
+        [config[sensorId] for sensorId in[sensorId for sensorId in config.keys()
+                if config[sensorId]['battery'] > THRESHOLD_BATTERY and config[sensorId]['status'] == True]], key=lambda k: k['forwarding_score'], reverse=True)
+    print(selected_forwarder[0])
+    return selected_forwarder
+
+
+if __name__ == "__main__":
+    decide_forwarder(compute_fowarding_score())
 
 class Sensor:
     id = ''
