@@ -1,5 +1,0 @@
-{
-  "1": {"type": "Blood Pressure", "battery": 70, "duty_cycle": 1, "data_rate": 2, "status": true, "transmission_cycle": 3, "active_power": 0.05, "transmission_power": 0.07,"distance_to_sink": 10},
-  "2": {"type": "Ear Temperature", "battery": 11.002808015823353, "duty_cycle": 4, "data_rate": 5, "status": true, "transmission_cycle": 6, "active_power": 0.03, "transmission_power": 0.04},
-  "3": {"type": "Glucose monitor", "battery": 30, "duty_cycle": 4, "data_rate": 5, "status": true, "transmission_cycle": 6, "active_power": 0.03, "transmission_power": 0.04}
-}

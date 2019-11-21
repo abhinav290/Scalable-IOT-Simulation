@@ -1,5 +1,5 @@
 import random
-from scalable.body1.sensors.sensor import Sensor
+from iot.body1.sensors.sensor import Sensor
 
 
 class TemperatureSensorEar(Sensor):

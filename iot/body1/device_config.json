@@ -1,0 +1,1 @@
+{ "instance_id": "1", "sink_queue_url": "https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-SensorToSink.fifo",  "forwarder_queue_url": "https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-SensorToForwarder.fifo"}
