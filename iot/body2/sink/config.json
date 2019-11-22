@@ -1,0 +1,1 @@
+{"type": "Sink", "battery": 1998.6833307665352, "duty_cycle": 1, "data_rate": 2, "status": true, "transmission_cycle": 3, "active_power": 0.0005, "transmission_power": 0.0007, "edge_queue_url": "https://sqs.eu-west-1.amazonaws.com/386707910583/sink-to-edge.fifo"}

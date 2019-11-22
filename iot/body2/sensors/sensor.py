@@ -1,15 +1,15 @@
 from datetime import datetime
 
 from iot.utils.queue_service import QueueService
-from iot.body1.sensors.device_config import Util
+from iot.body2.sensors.device_config import Util
 
 import sys
 import time
 
 
 class Sensor:
-    forwarderQueueUrl='https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-sensor-to-forwarder.fifo'
-    sinkQueueUrl='https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-SensorToSink.fifo'
+    forwarderQueueUrl='https://sqs.eu-west-1.amazonaws.com/386707910583/Device2-sensor-to-forwarder.fifo'
+    sinkQueueUrl='https://sqs.eu-west-1.amazonaws.com/386707910583/Device2-SensorToSink.fifo'
     queueService=QueueService()
 
 
@@ -57,12 +57,11 @@ class Sensor:
             self.send_to_sink(self.get_payload(data))
             return
         print('Sending data to forwarder - '+ self.id + ' == '+ str(data))
-        Sensor.queueService.send(Sensor.forwarderQueueUrl,self.get_payload(data), str(self.id))
-        self.temp_data=[]
+        Sensor.queueService.send(Sensor.forwarderQueueUrl, self.get_payload(data), str(self.id))
+        self.temp_data = []
 
     def is_forwarder(self):
         print('Forwarder id' + str(self.forwarder))
-
         if self.forwarder == self.id:
             return True
         return False
@@ -76,7 +75,6 @@ class Sensor:
     def decide_forwarder(self):
         if self.is_forwarder() and self.config['battery'] < Util.THRESHOLD_BATTERY:
             Util.decide_forwarder()
-
 
     def receive_forwarder(self):
         data_transmitted = 0
@@ -93,13 +91,13 @@ class Sensor:
         data=self.sense()
         if self.is_critical_data(data):
             data = self.get_payload(data=[{"type": "critical", "data": data, "timestamp": datetime.now().timestamp()}])
-            self.send_to_sink(data)
+            # self.send_to_sink(data)
             return self.calculate_data_size(data)
         data = {"type": "normal", "data": data, "timestamp": datetime.now().timestamp()}
         self.add_to_temp_data(data)
 
         if run % self.config['transmission_cycle'] == 0:
-            self.send_to_forwarder(self.temp_data)
+            self.send_to_forwarder(self.get_payload(self.temp_data))
             return self.calculate_data_size(self.get_payload(self.temp_data))
         return 0
 

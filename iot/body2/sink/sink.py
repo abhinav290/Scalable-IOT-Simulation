@@ -1,16 +1,14 @@
 from datetime import datetime
 import time
-import ast
+
 
 from iot.body1.sensors.sensor import Sensor
 from iot.body1.sensors.device_config import Util
 
 class Sink(Sensor):
-    edge_queue_url = 'https://sqs.eu-west-1.amazonaws.com/386707910583/sink-to-edge.fifo'
 
     def get_config(self):
         self.config = Util.get_sink_config(self.id)
-        self.reading_map = {}
 
     def set_config(self):
         Util.set_sink_config(self.id, self.config)
@@ -18,30 +16,36 @@ class Sink(Sensor):
     def receive_data(self):
         received_messages = Sensor.queueService.receive_and_delete_message(self.sinkQueueUrl)
         if received_messages:
-            self.process_data(received_messages)
+            self.temp_data.append(self.process_data(received_messages))
+
 
     def process_data(self, data):
-        for val in data:
-            print(val)
-            try:
-                sensor_dict = ast.literal_eval(val)
-                print(sensor_dict.keys())
-                for key in sensor_dict.keys():
-                    if str(key) not in self.reading_map:
-                        self.reading_map[str(key)] = []
-                    for reading in sensor_dict[str(key)]:
-                        # if reading['type'] == 'critical':
-                        #    print('ALERT ' + str(key) + ' sensor is in critical situation ' + str(reading['data']))
-                        self.reading_map[str(key)].append(reading)
-            except:
-                continue
+        return data
+        # if 'Messages' in normal_response:
+        #     messages = normal_response['Messages']
+        #     for message in messages:
+        #         body= message['Body']
+        #         for key in body.keys():
+        #             if key in self.final_data:
+        #                 self.final_data[key].append(body[key])
+        #             else:
+        #                 self.append(body)
+        # if 'Messages' in critical_response:
+        #     messages = critical_response['Messages']
+        #     for message in messages:
+        #         body= message['Body']
+        #         for key in body.keys():
+        #             if key in self.final_data:
+        #                 self.final_data[key].append(body[key])
+        #             else:
+        #                 self.append(body)
+
 
     # TODO add the code for sending data to sink.
     def send_to_edge(self):
-        if self.reading_map:
-            response = Sensor.queueService.send(self.edge_queue_url, str({self.id: self.reading_map}), str(self.id))
-            print('Sending data - to edge :-- ' + str(self.reading_map))
-            self.reading_map = {}
+        response = Sensor.queueService.send(self.config['edge_queue_url'], self.temp_data, str(self.id))
+        print('Sending data - to edge :-- ' + str(self.temp_data))
+        self.temp_data = []
 
 
     def start(self):

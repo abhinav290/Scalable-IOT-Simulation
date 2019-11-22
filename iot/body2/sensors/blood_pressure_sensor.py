@@ -1,4 +1,4 @@
-from iot.body1.sensors.sensor import Sensor
+from iot.body2.sensors.sensor import Sensor
 import random
 
 
