@@ -10,6 +10,25 @@ Technologies used in this simulation,
 * AngularJS - For creating the dashboard.
 
 And project is present in a [public repository][repo] on GitHub.
+<<<<<<< HEAD
+=======
+
+## Code Structure
+### Directories
+The directories listed inside iot package are discussed in brief here
+
+| Directory | Coontents |
+| ------ | ------ |
+|  body1  | Code for sensors and sink inside a body. |
+|  body1/sensors  | Sensors and their condfiguration (config) according to their ids. |
+|  body1/sink  | Sink and its configuration. |
+|  critical_edge_node  | Code for edge device responsible for handling critical data. |
+|  edge_node  | Code for edge device for handling normal data and scripts for uploading and downloading data to Amazon S3 Bucket. |
+|  body1/sink  | Sink and its condfiguration. |
+
+
+## Setup and Execution
+>>>>>>> 9e233426d3dc982fb5b84763f82a45e38266a83b
 ### Installation
 
 This project requires Python3 to run.
@@ -27,6 +46,7 @@ $ npm install
 $ NODE_ENV=production node app
 ```
 
+<<<<<<< HEAD
 ## Code Structure
 ### Directories
 The directories listed inside iot package are discussed in brief here
@@ -88,10 +108,17 @@ Parameter Meaning
 6. To display the data on the dashboard run `iot/edge/download_s3_file.py` after updating the bucket name and file path for your system.
 
 Simulation ends here.
+=======
+### Development
+
+>>>>>>> 9e233426d3dc982fb5b84763f82a45e38266a83b
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen.)
 
 
    [repo]: <https://github.com/abhinav290/Scalable-IOT-Simulation>
+<<<<<<< HEAD
    [aws_access_help]: <https://www.cloudberrylab.com/resources/blog/how-to-find-your-aws-access-key-id-and-secret-access-key>
+=======
+>>>>>>> 9e233426d3dc982fb5b84763f82a45e38266a83b
