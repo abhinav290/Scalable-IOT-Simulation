@@ -24,7 +24,6 @@ For dashboard NodeJS, AngularJS and its dependencies are required.
 
 ```sh
 $ npm install 
-$ NODE_ENV=production node app
 ```
 
 ## Code Structure
@@ -33,12 +32,15 @@ The directories listed inside iot package are discussed in brief here
 
 | Directory | Coontents |
 | ------ | ------ |
+|  Scalable-Dashboard  | Code for dashboard to display sensor data. |
 |  body1  | Code for sensors and sink inside a body. |
 |  body1/sensors  | Sensors and their condfiguration (config) according to their ids. |
 |  body1/sink  | Sink and its configuration. |
 |  critical_edge_node  | Code for edge device responsible for handling critical data. |
 |  edge_node  | Code for edge device for handling normal data and scripts for uploading and downloading data to Amazon S3 Bucket. |
 |  utils  | Communication utilities for AMAZON S3 and SQS. |
+
+
 Sample config of a sensor:-
 
 ```javascript
@@ -54,13 +56,13 @@ Sample config of a sensor:-
 }
 ```
 Parameter Meaning
-> Battery is the remaining battery in percentage.
-> Duty cycle is represented in percentage. For example, 1 means 1 %.
-> Data Rate is bytes of data that can be transmiited per second.
-> Status represents if the sensor is on or off.
-> Transmission cycle is used to transmit data to forwarder node every nth cycle.
-> Active Power is power loss per second.
-> Transmission_power is power loss per second when sensor is sending data.
+>  * Battery is the remaining battery in percentage.
+>  * Duty cycle is represented in percentage. For example, 1 means 1 %.
+>  * Data Rate is bytes of data that can be transmiited per second.
+>  * Status represents if the sensor is on or off.
+>  * Transmission cycle is used to transmit data to forwarder node every nth cycle.
+>  * Active Power is power loss per second.
+>  * Transmission_power is power loss per second when sensor is sending data.
 
 ## Setup and Execution
 * Create an account on AWS and generate private and secret key and store it in your system. Further information can be found [here][aws_access_help]. 
@@ -84,8 +86,10 @@ Parameter Meaning
 2. Run `iot/edge/critical_edge/base.py` to start the critical edge node.
 3. Run `iot/body1/sink/sink.py` to start the sink node. 
 4. Set the `status` in the `config` file of the sensor you want to start and run its corresponding python script.
-5. Once simulation is done run `iot/edge_node/upload_to_s3.py` to upload the data to S3 bucket after updating the bucket name in the script.
+5. Once sensors are running and data has reached edge node, run `iot/edge_node/upload_to_s3.py` to upload the data to S3 bucket after updating the bucket name in the script.
 6. To display the data on the dashboard run `iot/edge/download_s3_file.py` after updating the bucket name and file path for your system.
+7. To view the data on the dashboard, move to the directory where AngularJS code is present.
+8. Run `ng serve --live-reload false` for a dev server. Navigate to `http://localhost:4200/`. The app will not automatically reload if you change any of the source files.
 
 Simulation ends here.
 
