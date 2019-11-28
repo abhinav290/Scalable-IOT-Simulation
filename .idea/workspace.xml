@@ -1,8 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="67f02cc1-552c-49a9-b5b7-793b5a3bb28d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/iot/critical_edge_node/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/device_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/actuator.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/config/1.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/config/1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/config/2.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/config/2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/config/3.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/config/3.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/config/4.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/config/4.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/config/5.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/config/5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/device_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/device_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/forwarder.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/forwarder.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/glucose_sensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/glucose_sensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sensors/sensor.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sensors/sensor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sink/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sink/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sink/data.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body1/sink/sink.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot/body1/sink/sink.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/device_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/accelerometer_sensor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/blood_pressure_sensor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/config/1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/config/2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/config/3.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/config/4.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/edge_node/download_s3_file.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/config/5.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/device_config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/forwarder.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/lactic_acid_sensor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/sensor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sensors/temperature_sensor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sink/config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/body2/sink/sink.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/edge_node/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot/edge_node/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/edge_node/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/iot/edge_node/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/edge_node/upload_to_s3.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot/edge_node/upload_to_s3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iot/utils/queue_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot/utils/queue_service.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1TqDoRBRomYU360BPiYtMKThxr3" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="D:/python_workspace" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.base (1)">
+    <configuration name="base (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scalable-IOT-Simulation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/iot/edge_node" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iot/edge_node/base.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="base" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scalable-IOT-Simulation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/iot/critical_edge_node" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iot/critical_edge_node/base.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="blood_pressure_sensor" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scalable-IOT-Simulation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/iot/body1/sensors" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iot/body1/sensors/blood_pressure_sensor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="sink" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scalable-IOT-Simulation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/iot/body1/sink" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iot/body1/sink/sink.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="temperature_sensor" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scalable-IOT-Simulation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/iot/body1/sensors" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iot/body1/sensors/temperature_sensor.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.base (1)" />
+        <item itemvalue="Python.blood_pressure_sensor" />
+        <item itemvalue="Python.temperature_sensor" />
+        <item itemvalue="Python.sink" />
+        <item itemvalue="Python.base" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="67f02cc1-552c-49a9-b5b7-793b5a3bb28d" name="Default Changelist" comment="" />
+      <created>1574909159465</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574909159465</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

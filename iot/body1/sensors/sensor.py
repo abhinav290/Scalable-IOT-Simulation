@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from iot.utils.queue_service import QueueService
+from iot.utils.queue_service import AWSService
 from iot.body1.sensors.device_config import Util
 
 import sys
@@ -8,9 +8,10 @@ import time
 
 
 class Sensor:
-    forwarderQueueUrl='https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-sensor-to-forwarder.fifo'
-    sinkQueueUrl='https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-SensorToSink.fifo'
-    queueService=QueueService()
+    # Queue URLs for forwarder and sink node.
+    forwarderQueueUrl = 'https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-sensor-to-forwarder.fifo'
+    sinkQueueUrl = 'https://sqs.eu-west-1.amazonaws.com/386707910583/Device1-SensorToSink.fifo'
+    queueService = AWSService()
 
 
     def set_forwarder(self, id):
@@ -77,7 +78,7 @@ class Sensor:
         if self.is_forwarder() and self.config['battery'] < Util.THRESHOLD_BATTERY:
             Util.decide_forwarder()
 
-
+    # Function to receive data for forwarder node.
     def receive_forwarder(self):
         data_transmitted = 0
         if self.is_forwarder():
@@ -90,7 +91,7 @@ class Sensor:
         return data_transmitted
 
     def process(self, run):
-        data=self.sense()
+        data = self.sense()
         if self.is_critical_data(data):
             data = self.get_payload(data=[{"type": "critical", "data": data, "timestamp": datetime.now().timestamp()}])
             self.send_to_sink(data)

@@ -1,1 +1,1 @@
-{"type": "Sink", "battery": 1998.0369637163392, "duty_cycle": 1, "data_rate": 20, "status": true, "transmission_cycle": 5, "active_power": 0.0001, "transmission_power": 0.0003}
+{"type": "Sink", "battery": 97.92065005665769, "duty_cycle": 1, "data_rate": 20, "status": true, "transmission_cycle": 5, "active_power": 1e-06, "transmission_power": 3e-06}

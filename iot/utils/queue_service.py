@@ -1,23 +1,10 @@
 import boto3
 
 
-class QueueService:
-    AWS_ACCESS_KEY = 'AKIAVUCMWN63SXDTHQBM'
-    AWS_SECRET_KEY = '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'
-    AWS_REGION= "eu-west-1"
+class AWSService:
     def __init__(self):
-        self.sqs = boto3.client(
-            'sqs',
-            aws_access_key_id=QueueService.AWS_ACCESS_KEY,
-            aws_secret_access_key=QueueService.AWS_SECRET_KEY,
-            region_name=QueueService.AWS_REGION
-        )
-        self.s3 = boto3.client(
-            's3',
-            aws_access_key_id=QueueService.AWS_ACCESS_KEY,
-            aws_secret_access_key=QueueService.AWS_SECRET_KEY,
-            region_name=QueueService.AWS_REGION
-        )
+        self.sqs = boto3.client('sqs')
+        self.s3 = boto3.client('s3')
 
     def receive_and_delete_message(self, queue_url):
         data = []

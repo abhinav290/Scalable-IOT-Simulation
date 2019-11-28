@@ -7,6 +7,7 @@ from iot.body1.sensors.device_config import Util
 
 class Sink(Sensor):
     edge_queue_url = 'https://sqs.eu-west-1.amazonaws.com/386707910583/sink-to-edge.fifo'
+    edge_critical_url = 'https://sqs.eu-west-1.amazonaws.com/386707910583/crirical-edge.fifo'
 
     def get_config(self):
         self.config = Util.get_sink_config(self.id)
@@ -30,14 +31,19 @@ class Sink(Sensor):
                     if str(key) not in self.reading_map:
                         self.reading_map[str(key)] = []
                     for reading in sensor_dict[str(key)]:
-                        # if reading['type'] == 'critical':
-                        #    print('ALERT ' + str(key) + ' sensor is in critical situation ' + str(reading['data']))
+                        if reading['type'] == 'critical':
+                            self.alert_edge(str(key) + ' sensor is in critical situation ' + str(reading['data']))
                         self.reading_map[str(key)].append(reading)
             except:
                 continue
 
-    # TODO add the code for sending data to sink.
-    def send_to_edge(self):
+
+    def alert_edge(self, data):
+        print("Critical data" + data)
+        Sensor.queueService.send(self.edge_critical_url, str({self.id: data}), str(self.id))
+
+
+    def send_to_edge_aggregator(self):
         if self.reading_map:
             response = Sensor.queueService.send(self.edge_queue_url, str({self.id: self.reading_map}), str(self.id))
             print('Sending data - to edge :-- ' + str(self.reading_map))
@@ -51,11 +57,10 @@ class Sink(Sensor):
             self.set_config()
             start_time = datetime.now().timestamp()
             time.sleep(2)
-            #print('Waking ' + str(datetime.now()))
             print('Battery level - ' + str(self.config['battery']))
 
             data = self.receive_data()
-            self.send_to_edge()
+            self.send_to_edge_aggregator()
 
             end_time = datetime.now().timestamp()
             active_time = float(end_time) - float(start_time)
@@ -65,8 +70,9 @@ class Sink(Sensor):
             self.set_config()
             self.config['status'] = False
             run += 1
-            #print('Sleeping ' + str(datetime.now()))
             time.sleep(self.calculate_off_time(active_time))
 
-sink=Sink("221")
+
+# Sink id - can be any number.
+sink = Sink("221")
 sink.start()

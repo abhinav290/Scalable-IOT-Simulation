@@ -1,1 +1,1 @@
-{"type": "Sensor", "battery": 0, "duty_cycle": 1, "data_rate": 2, "status": true, "transmission_cycle": 3, "active_power": 0.0005, "transmission_power": 0.0007, "distance_to_sink": 20}
+{"type": "Sensor", "battery": 100, "duty_cycle": 1, "data_rate": 2, "status": false, "transmission_cycle": 3, "active_power": 0.0005, "transmission_power": 0.0007, "distance_to_sink": 12}

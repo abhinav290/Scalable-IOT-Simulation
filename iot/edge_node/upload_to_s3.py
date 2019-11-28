@@ -1,12 +1,12 @@
 from datetime import date
 from botocore.exceptions import ClientError
-from iot.utils.queue_service import QueueService
+from iot.utils.queue_service import AWSService
 
 import logging
 
 
 def upload_file(file_name, bucket, object_name=None):
-    queueService = QueueService()
+    queueService = AWSService()
 
     # If S3 object_name was not specified, use file_name
     if object_name is None:

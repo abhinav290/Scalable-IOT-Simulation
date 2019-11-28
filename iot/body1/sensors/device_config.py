@@ -5,14 +5,13 @@ import os
 import pickle
 
 sensor_config_dir = "config"
-device_config_file = './../../device_config.json'
 forwarder_file = 'forwarder.json'
 
 
 class Util:
     lock = Lock()
     lock1 = Lock()
-    THRESHOLD_BATTERY = 60
+    THRESHOLD_BATTERY = 20
 
     @staticmethod
     def calculate_power_distance(config):

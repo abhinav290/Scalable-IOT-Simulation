@@ -1,16 +1,17 @@
-from iot.utils.queue_service import QueueService
+from iot.utils.queue_service import AWSService
 import ast
 import json
 import os
 
 
 class Edge:
-    queue_service = QueueService()
+    queue_service = AWSService()
 
     def __init__(self):
+        # Edge Queue URL
         self.edge_url = 'https://sqs.eu-west-1.amazonaws.com/386707910583/sink-to-edge.fifo'
         self.temp_data = {}
-        self.filePath ='data.json'
+        self.filePath = 'data.json'
 
     def receive_data(self):
         received_messages = Edge.queue_service.receive_and_delete_message(self.edge_url)
@@ -29,23 +30,21 @@ class Edge:
                         self.temp_data[str(device_id)][str(sensor_id)] = []
                     for reading in sensor_dict[str(sensor_id)]:
                         self.temp_data[str(device_id)][str(sensor_id)].append(reading)
-                        # if reading['type'] == 'critical':
-                        # print('ALERT ' + str(key) + ' sensor is in critical situation ' + str(reading['data']))
         self.update_file()
 
     def update_file(self):
-        data={}
+        data = {}
         if os.path.exists(self.filePath):
             f = open(self.filePath, 'r+')
             data = json.loads(f.read())
             f.close()
 
         for device_id in self.temp_data.keys():
-            if str(device_id) not in  data:
-                data[str(device_id)]={}
+            if str(device_id) not in data:
+                data[str(device_id)] = {}
             for sensor_id in self.temp_data[str(device_id)].keys():
                 if str(sensor_id) not in data[str(device_id)]:
-                    data[str(device_id)][str(sensor_id)]=[]
+                    data[str(device_id)][str(sensor_id)] = []
                 for reading in self.temp_data[str(device_id)][str(sensor_id)]:
                     data[str(device_id)][str(sensor_id)].append(reading)
         json.dump(data, open(self.filePath, 'w+'))
@@ -59,6 +58,6 @@ class Edge:
             self.receive_data()
 
 
+# Edge node for processing of normal data and creating a file which can be uploaded to S3.
 edgeLaptop = Edge()
-#edgeLaptop.start()
 edgeLaptop.start()
